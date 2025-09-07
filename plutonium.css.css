@@ -1,0 +1,164 @@
+
+     /* off-screen-menu */
+.off-screen-menu {
+ background-color: #80808060;
+ height: 35vh;
+ width: 150px;
+
+ max-width: 450px;
+ position: fixed;
+ top: 0;
+ right: -450px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ font-size: 3rem;
+ transition: .3s ease;
+border-radius: 20px;
+  font-family: arial;
+}
+.off-screen-menu.active {
+right: 0;
+}
+nav {
+padding: 1rem;
+display: flex;
+background-color: #646D7E;
+border-radius: 5px;
+height: 5vh;
+}
+li{
+list-style: none;
+display: inline-block;
+}
+li a{
+color: rgb(21, 42, 59);
+font-size: 18px;
+font-weight: bold;
+margin-right: 5px;
+
+}
+.ham-menu{
+height: 40px;
+width: 40px;
+margin-left: auto;
+position: relative;
+}
+.ham-menu span{
+height: 5px;
+width: 100%;
+background-color: #151B54;
+border-radius: 25px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+transition: .3s ease;
+}
+.ham-menu span:nth-child(1){
+top: 25%;
+}
+.ham-menu span:nth-child(3){
+top: 75%;
+}
+
+.ham-menu.active span:nth-child(1){
+top: 50%;
+transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.active span:nth-child(2){
+opacity: 0;
+}
+.ham-menu.active span:nth-child(3){
+top: 50%;
+transform: translate(-50%, 50%) rotate(-45deg);
+
+}
+.no-underline{
+text-decoration: none;
+}
+.logo{
+margin-right: auto;
+display: flex;
+position: absolute;
+top: 1%;
+left: 0;
+width: 9%;
+height: 9%;
+}
+
+
+.table-container{
+  display: table;
+  width: 700px;
+  border: 5px solid #f0e6b536;
+  margin: 500px auto;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+margin-bottom: 20px;
+background-color: #d7c58520;
+}
+.table-row{
+  display: table-row; 
+
+}
+.table-cell{
+  display: table-cell;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  text-align: justify;
+}
+.table-cell:first-child{
+  font-weight: bold;
+  width: 2000px;
+}
+body{
+  background-color: #bcf4f61f;
+}
+body{
+  background-color: #f5f4cf17;
+}
+  .cesium{
+    font-size: 20px;
+    margin: 500px auto;
+    text-align: justify;
+    padding: 30px;
+    display: center;
+    position: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;  
+ margin-top: 20px;
+ margin-bottom: 0%;
+ width: 98%;
+ border-radius: 5px;
+ background-color: #e3d4a517;
+  }
+  .highlight{
+    color: rgb(13, 75, 125);
+  }
+  .highlight1{
+    color: rgb(13, 75, 125);
+  }
+  .highlight2{
+    color: rgb(13, 75, 125);
+  }  
+  .title{
+    color: rgb(9, 40, 65);
+  }
+
+  .title1{
+    color: rgb(9, 40, 65);
+  }
+  .highlight3{
+    color: rgb(13, 75, 125);
+  }  
+  .highlight4{
+    color: rgb(13, 75, 125);
+  }  
+  .highlight5{
+    color: rgb(13, 75, 125);
+  }  
+ 
