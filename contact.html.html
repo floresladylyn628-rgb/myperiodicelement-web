@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Bar</title>
+<link href="C:\Users\ladylynflores\Desktop\FloresWeb\contact.css.css" rel="stylesheet" name="css">
+</head>
+
+
+
+<body>
+  <div>
+    <img src="C:\Users\ladylynflores\OneDrive\Pictures\image\Periodic table Background3_still.jpg" alt="" class="contact">
+  </div>
+   <div class="off-screen-menu">
+      
+            <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\home.html.html">Home</a></li>
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\elements.html.html">Elements</a></li> 
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\about.html.html">About</a></li>
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\contact.html.html">Contact</a></li>
+ 
+   </div>
+
+  <nav>
+
+<img src="C:\Users\ladylynflores\OneDrive\Pictures\image\BackgroundEraser_20250731_021238492.png" alt="" class="logo">
+    <div class="ham-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+  </nav>
+
+  
+
+
+
+</head>
+<body>
+<div class="contact-section">
+  <h2>Contact Us</h2>
+  <p><strong>Email:</strong> floresladylyn628@gmail.com</p>
+
+<p><strong>Address:</strong> Masaguisi, Bongabong, Oriental Mindoro</p>
+  <button class="email-button" onclick="openEmail()">Send Email</button>
+</div>
+
+
+<script>
+  function openEmail{
+    const email="floresladylyn628@gmail.com";
+    const subject = "Hello";
+    const body = "I want to inquire about...";
+
+    const mailtoLink = 'mailto:${email}? subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}';
+
+    window.location.href = mailtoLink;
+  }
+</script>
+
+
+<div>
+  <div class="footer">
+<footer>
+
+    <ul class="social-icons">
+      <li><a href="https://www.facebook.com" target="_blank" title="Facebook">🌐</a></li>
+      <li><a href="https://www.instagram.com" target="_blank" title="Instagram">📸</a></li>
+
+    </ul>
+   <div class="textfoot"> <p>&copy; 2025 Atomic World. All rights reserved.
+      <br>
+      This website is for project purposes only.
+    </p></div>
+  </footer>
+</div>
+</div>
+
+
+<script src="C:\Users\ladylynflores\Desktop\FloresWeb\nav.js"></script>
+</body>
+</html>
+

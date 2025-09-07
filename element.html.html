@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Periodic Table</title>
+        <link rel="stylesheet" href="style.css">
+<style  type="text/css">
+    *{
+.off-screen-menu {
+  background-color: #80808060;
+   height: 35vh;
+   width: 150px;
+   max-width: 450px;
+   position: fixed;
+   top: 0;
+   right: -450px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   font-size: 3rem;
+   transition: .3s ease;
+  border-radius: 20px;
+    font-family: arial;
+  
+  }
+  .off-screen-menu.active {
+  right: 0;
+  }
+  nav {
+  padding: 1rem;
+  display: flex;
+  background-color: #646D7E;
+  border-radius: 5px;
+  height: 5vh;
+  box-shadow: #646D7E;
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  }
+  li{
+  list-style: none;
+  display: inline-block;
+  }
+  li a{
+  color: rgb(21, 42, 59);
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+
+  }
+  .ham-menu{
+ position: absolute;
+ top: 10px;
+right: 3%;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 40px;
+ height: 40px;
+ cursor: pointer;
+ margin: 5px;
+  }
+  .ham-menu span{
+  height: 5px;
+  width: 100%;
+  background-color: #151B54;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .3s ease;
+  }
+  .ham-menu span:nth-child(1){
+  top: 25%;
+  }
+  .ham-menu span:nth-child(3){
+  top: 75%;
+  }
+  
+  .ham-menu.active span:nth-child(1){
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .ham-menu.active span:nth-child(2){
+  opacity: 0;
+  }
+  .ham-menu.active span:nth-child(3){
+  top: 50%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+  
+  }
+  .no-underline{
+  text-decoration: none;
+  }
+ 
+
+  
+  
+  
+  .logo{
+    position: absolute;
+ top: 0;
+
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ width: 95px;
+ height: 80px;
+ 
+
+  }
+  
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .periodic-table{
+            display: grid;
+            grid-template-columns: repeat(18, 50px);
+            gap: 5px;
+        }  
+      
+        
+        .H{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .He{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .Li{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Be{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .B{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .C{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .N{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .O{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          
+        }
+        .F{
+            background-color: rgba(255, 255, 0, 0.237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#b7b746;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          
+        }
+        .Ne{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .Na{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Mg{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Al{
+            background-color: rgba(243, 16, 148, 0.315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Si{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .P{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .S{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cl{
+            background-color: rgba(255, 255, 0, 0.237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#b7b746;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          
+        }
+        .Ar{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+           
+        }
+        .K{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ca{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Sc{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ti{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .V{
+            background-color:  rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cr{
+            background-color:  rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Mn{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Fe{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Co{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ni{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cu {
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Zn{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ga{
+            background-color: rgba(243, 16, 148, 0.315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ge{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .As{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Se{
+            background-color: rgba(26, 191, 216, 0.422);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#469fb7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Br{
+            background-color: rgba(255, 255, 0, 0.237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#b7b746;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .Kr{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+           
+        }
+        .Rb{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Sr{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Y{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Zr{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Nb{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Mo{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Tc{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ru{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Rh{
+            background-color:  rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pd{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ag{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cd{
+            background-color:  rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .In{
+            background-color: rgba(243, 16, 148, 0.315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Sn{
+            background-color:rgba(243, 16, 148, 0.315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Sb{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Te{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .I{
+            background-color: rgba(255, 255, 0, 0.237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#b7b746;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Xe{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+     
+        }
+        .Cs{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ba{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .first{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Hf{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ta{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .W{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Re{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Os{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ir{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pt{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Au{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Hg{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+     
+        }
+        .Tl{
+            background-color: rgba(243, 16, 148, 0.315);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pb{
+            background-color:rgba(243, 16, 148, 0.315); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Bi{
+            background-color:rgba(243, 16, 148, 0.315); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ea179c;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Po{
+            background-color: rgba(132, 98, 58, 0.486);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#a05c0d;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .At{
+            background-color: rgba(255, 255, 0, 0.237);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#b7b746;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .Rn{
+            background-color: rgba(249, 134, 80, 0.338);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f17443;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+      
+        }
+        .Fr{
+            background-color: rgba(130, 134, 134, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#525252;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        
+        }
+        .Ra{
+            background-color: rgba(29, 164, 110, 0.438);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#13c371;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Second{
+            background-color: rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Rf{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .Db{
+            background-color:  rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        
+        }
+        .Sg{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+     
+        }
+        .Bh{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        
+        }
+        .Hs{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+       
+        }
+        .Mt{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+   
+        }
+        .Ds{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+  
+        }
+        .Rg{
+            background-color:  rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+   
+        }
+        .Cn{
+            background-color: rgba(255, 234, 0, 0.466);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ffee01;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+          
+        }
+        .Nh{
+            background-color:rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+       
+        }
+        .Fl{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+           
+        }
+        .Mc{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+      
+        }
+        .Lv{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .Ts{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+         
+        }
+        .Og{
+            background-color: rgba(160, 118, 19, 0.393);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#9b5703c7;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            
+        }
+        .La{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ce{
+            background-color:  rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pr{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Nd{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pm{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Sm{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Eu{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Gd{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Tb{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Dy{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ho{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Er{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Tm{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Yb{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Lu{
+            background-color: rgba(255, 196, 0, 0.463);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#ed9f03c8;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Ac{
+            background-color: rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Th{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pa{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .U{
+            background-color: rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Np{
+            background-color: rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Pu{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Am{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cm{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Bk{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Cf{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Es{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Fm{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Md{
+            background-color: rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .No{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .Lr{
+            background-color:  rgba(238, 12, 223, 0.475);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid#f106f9;
+            border-radius: 4px;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .title{
+           position: absolute;
+           top: 10vh;
+           margin-left: 45%;
+           transform: translateX(-50%);
+           text-align: center;
+           font-size: 50px;
+           font-weight: bold;
+           color:rgb(4, 64, 133);
+        }
+        .legend{
+            position: absolute;
+            bottom: 200px;
+            left: 20px;
+            background-color: #a8dae61a;
+          
+            border-radius: 8px;
+            padding: 15px;
+           
+            width: 200px; 
+           
+        }
+        .legend h3{
+            margin: 0;
+            font-size: 18px;
+            text-align: justify;
+        }
+        .legend ul{
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .legend li{
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .legend span{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border-radius: 4px;
+        }
+        .alkali{
+         background-color: rgba(130, 134, 134, 0.475);
+        }
+        .alkaline{
+         background-color: rgba(29, 164, 110, 0.438)
+        }
+        .transition{
+         background-color: rgba(255, 234, 0, 0.466)
+        }
+        .lanthanide{
+         background-color: rgba(255, 196, 0, 0.463);
+        }
+        .actinide{
+         background-color: rgba(238, 12, 223, 0.475);
+        }
+        .noble{
+         background-color: rgba(249, 134, 80, 0.338);
+        }
+        .halogen{
+         background-color: rgba(255, 255, 0, 0.237);
+        }
+        .post{
+         background-color: rgba(243, 16, 148, 0.315);
+        }
+        .metalloids{
+         background-color: rgba(132, 98, 58, 0.486);
+        }
+        .nonmetals{
+         background-color: rgba(26, 191, 216, 0.422);
+        }
+        .unknown{
+         background-color:rgba(160, 118, 19, 0.393);
+        }
+        .backimg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        
+            z-index: -1;
+            opacity: 30%;
+        }
+        .origin{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.137);
+        color: #fff;
+      margin-left: 5px;
+        padding-left: 5px;
+        border-radius: 5px;
+        font-size: 20px;
+        box-shadow: 0 4px 4px rgba(3, 56, 116, 0.648);
+        color:rgba(7, 4, 98, 0.774);
+        font-family: Arial, sans-serif; 
+        }
+.lines{
+    text-decoration: none;    
+}
+
+    }
+</style>
+    </head>
+    <body>
+        <div class="off-screen-menu">
+      
+            <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\home.html.html">Home</a></li>
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\element.html.html">Elements</a></li> 
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\about.html.html">About</a></li>
+          <li><a class="no-underline" href="C:\Users\ladylynflores\Desktop\FloresWeb\contact.html.html">Contact</a></li>
+
+   </div>
+
+  <nav>
+<img src="C:\Users\ladylynflores\OneDrive\Pictures\image\BackgroundEraser_20250731_021238492.png" alt="" class="logo">
+    <div class="ham-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+  </nav>
+  <script src="nav.js"></script>
+<div class="title">Periodic Table Of Elements</div>
+
+       <div class="periodic-table">
+            <!--Period 1-->
+            <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\hydro.html.html"> <div class="H" style="grid-column:1;">H</div> </a>
+            <div class="He" style="grid-column:18;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\helium.html.html">He</a></div>
+  
+             <!--Period 2-->
+           <div class="Li" style="grid-column:1;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\lithium.html.html">Li</a></div>
+         <div class="Be" style="grid-column:2;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\beryllium.html.html"> Be</a></div> 
+         <div class="B" style="grid-column:13;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\boron.html.html"> B</a></div>
+           <div class="C" style="grid-column:14;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\carbon.html.html">C</a></div>
+  <div class="N" style="grid-column:15;">          <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\nitrogen.html.html"> N</a></div>
+           <div class="O" style="grid-column:16;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\oxygen.html.html"> O</a></div>
+            <div class="F" style="grid-column:17;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\flourine.html.html">F</a></div>
+ <div class="Ne" style="grid-column:18;">          <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\neon.html.html">  Ne</a></div>
+
+     <!--Period 3-->
+   <div class="Na" style="grid-column:1;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\sodium.html.html">  Na</a></div>
+         <div class="Mg" style="grid-column:2;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\magnesium.html.html">Mg</a></div>
+             <div class="Al" style="grid-column:13;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\aluminum.html.html">Al</a></div>
+               <div class="Si" style="grid-column:14;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\silicon.html.html"> Si</a></div>
+ <div class="P" style="grid-column:15;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\phosphorus.html.html"> P</a></div>
+    <div class="S" style="grid-column:16;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\sulfur.html.html"> S</a></div>
+ <div class="Cl" style="grid-column:17;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\chlorine.html.html"> Cl</a></div>
+   <div class="Ar" style="grid-column:18;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\argon.html.html"> Ar</a></div>
+
+     <!--Period 4-->
+  <div class="K" style="grid-column:1;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\potassium.html.html">K</a></div>
+   <div class="Ca" style="grid-column:2;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\calcium.html.html">Ca</a></div>
+<div class="Sc" style="grid-column:3;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\scandium.html.html">Sc</a></div>
+     <div class="Ti" style="grid-column:4;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\titanium.html.html">Ti</a></div>
+     <div class="V" style="grid-column:5;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\vanadium.html.html">V</a></div>
+<div class="Cr" style="grid-column:6;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\chromium.html.html">Cr</a></div>
+     <div class="Mn" style="grid-column:7;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\manganese.html.html">Mn</a></div>
+  <div class="Fe" style="grid-column:8;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\iron.html.html">Fe</a></div>
+    <div class="Co" style="grid-column:9;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\cobalt.html.html">Co</a></div>
+  <div class="Ni" style="grid-column:10;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\nickel.html.html">Ni</a></div>
+  <div class="Cu" style="grid-column:11;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\copper.html.html">Cu</a></div>
+    <div class="Zn" style="grid-column:12;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\zinc.html.html">Zn</a></div>
+   <div class="Ga" style="grid-column:13;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\gallium.html.html">Ga</a></div>
+<div class="Ge" style="grid-column:14;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\germanium.html.html">Ge</a></div>
+ <div class="As" style="grid-column:15;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\arsenic.html.html">As</a></div>
+     <div class="Se" style="grid-column:16;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\selenium.html.html">Se</a></div>
+ <div class="Br" style="grid-column:17;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\bromine.html.html">Br</a></div>
+<div class="Kr" style="grid-column:18;">     <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\krypton.html.html">Kr</a></div>
+
+   <!--Period 5-->
+<div class="Rb" style="grid-column:1;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\rubidium.html.html">Rb</a></div>
+<div class="Sr" style="grid-column:2;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\strontium.html.html"> Sr</a></div>
+  <div class="Y" style="grid-column:3;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\ytrrium.html.html"> Y</a></div>
+  <div class="Zr" style="grid-column:4;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\zirconium.html.html"> Zr</a></div>
+   <div class="Nb" style="grid-column:5;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\niobium.html.html"> Nb</a></div>
+  <div class="Mo" style="grid-column:6;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\molybdenum.html.html"> Mo</a></div>
+ <div class="Tc" style="grid-column:7;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\technetium.html.html"> Tc</a></div>
+<div class="Ru" style="grid-column:8;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\ruthenium.html.html"> Ru</a></div>
+<div class="Rh" style="grid-column:9;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\rhodium.html.html"> Rh</a></div>
+ <div class="Pd" style="grid-column:10;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\palladium.html.html">Pd</a></div>
+ <div class="Ag" style="grid-column:11;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\silver.html.html"> Ag</a></div>
+ <div class="Cd" style="grid-column:12;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\cadmium.html.html"> Cd</a></div>
+ <div class="In" style="grid-column:13;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\indium.html.html">In</a></div>
+  <div class="Sn" style="grid-column:14;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\tin.html.html">Sn</a></div>
+<div class="Sb" style="grid-column:15;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\antimony.html.html">Sb</a></div>
+<div class="Te" style="grid-column:16;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\tellerium.html.html">Te</a></div>
+ <div class="I" style="grid-column:17;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\iodine.html.html">I </a></div>
+   <div class="Xe" style="grid-column:18;"><a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\xenon.html.html">Xe</a></div>
+
+   <!--Period 6-->
+ <div class="Cs" style="grid-column:1;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\cesium.html.html">Cs</a></div>
+ <div class="Ba" style="grid-column:2;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\barium.html.html">Ba</a></div>
+<div class="first" style="grid-column:3;">   <a class="lines" href="#">*</a></div>
+  <div class="Hf" style="grid-column:4;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\hafnium.html.html">Hf</a></div>
+  <div class="Ta" style="grid-column:5;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\tantalum.html.html">Ta</a></div>
+<div class="W" style="grid-column:6;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\tungsten.html.html">W</a></div>
+ <div class="Re"  style="grid-column:7;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\rhenium.html.html">Re</a></div>
+<div class="Os"  style="grid-column:8;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\osmium.html.html">Os</a></div>
+ <div class="Ir"  style="grid-column:9;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\iridium.html.html">Ir</a></div>
+   <div class="Pt"  style="grid-column:10;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\platinum.html.html">Pt</a></div>
+    <div class= "Au" style="grid-column:11;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\gold.html.html">Au</a></div>
+ <div class="Hg" style="grid-column:12;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\mercury.html.html">Hg</a></div>
+  <div class="Tl"  style="grid-column:13;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\thallium.html.html">Tl</a></div>
+ <div class="Pb"  style="grid-column:14;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\lead.html.html">Pb</a></div>
+   <div class="Bi" style="grid-column:15;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\bismuth.html.html">Bi</a></div>
+   <div class="Po"  style="grid-column:16;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\polonium.html.html"> Po</a></div>
+  <div class="At"  style="grid-column:17;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\astatine.html.html"> At</a></div>
+ <div class="Rn"  style="grid-column:18;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\radon.html.html">Rn</a></div>
+
+   <!--Period 7-->
+<div class="Fr"  style="grid-column:1;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\francium.html.html">Fr</a></div>
+ <div class="Ra"  style="grid-column:2;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\radium.html.html"> Ra</a></div>
+ <div class="Second"  style="grid-column:3;">   <a class="lines" href="#"> **</a></div> 
+<div class="Rf"  style="grid-column:4;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\rutherfordium.html.html"> Rf</a></div> 
+    <div class= "Db" style="grid-column:5;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\dubnium.html.html"> Db</a></div> 
+    <div class="Sg"  style="grid-column:6;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\seaborgium.html.html"> Sg</a></div> 
+    <div class="Bh"  style="grid-column:7;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\bohrium.html.html"> Bh</a></div> 
+    <div class="Hs"  style="grid-column:8;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\hassium.html.html"> Hs</a></div> 
+   <div class="Mt" style="grid-column:9;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\meitnerium.html.html"> Mt</a></div> 
+ <div class="Ds" style="grid-column:10;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\darmstadtium.html.html"> Ds</a></div> 
+    <div class="Rg"  style="grid-column:11;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\roentgenium.html.html"> Rg</a></div> 
+   <div class="Cn"  style="grid-column:12;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\copernicium.html.html"> Cn</a></div> 
+    <div class="Nh"  style="grid-column:13;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\nihonium.html.html"> Nh</a></div> 
+  <div class="Fl"  style="grid-column:14;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\flerovium.html.html"> Fl</a></div> 
+    <div class="Mc" style="grid-column:15;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\moscovium.html.html"> Mc</a></div> 
+   <div class="Lv"  style="grid-column:16;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\livermorium.html.html"> Lv</a></div> 
+    <div class="Ts"  style="grid-column:17;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\tennessine.html.html">Ts</a></div> 
+   <div class="Og"  style="grid-column:18;">   <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\oganesson.html.html">Og</a></div> 
+
+  <!--Lanthanides-->
+  <div class="La" style="grid-column:3;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\lanthanum.html.html">La</a></div>
+     <div class="Ce" style="grid-column:4;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\cerium.html.html"> Ce</a></div> 
+      <div class="Pr" style="grid-column:5;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\praseodymium.html.html"> Pr</a></div>
+          <div class="Nd" style="grid-column:6;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\neodymium.html.html">Nd</a></div> 
+                <div class="Pm"  style="grid-column:7;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\promethium.html.html"> Pm</a></div> 
+                    <div class="Sm"  style="grid-column:8;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\samarium.html.html"> Sm</a></div> 
+            <div class="Eu"  style="grid-column:9;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\europium.html.html"> Eu</a></div> 
+                           <div class="Gd"  style="grid-column:10;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\gadolinium.html.html"> Gd</a></div> 
+                         <div class="Tb" style="grid-column:11;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\terbium.html.html"> Tb</a></div> 
+                                     <div class="Dy"  style="grid-column:12;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\dysprosium.html.html">Dy</a></div> 
+                                    <div class="Ho"  style="grid-column:13;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\holmium.html.html"> Ho</a></div> 
+                                             <div class="Er"  style="grid-column:14;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\erbium.html.html"> Er</a></div> 
+                                          <div class="Tm"  style="grid-column:15;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\thulium.html.html"> Tm</a></div> 
+                                            <div class="Yb"  style="grid-column:16;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\ytterbium.html.html"> Yb</a></div> 
+                                                        <div class="Lu" style="grid-column:17;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\lutetium.html.html"> Lu</a></div> 
+  <!--Actinides-->
+ <div class="Ac"  style="grid-column:3;"> <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\actinium.html.html">Ac</a></div> 
+    <div class="Th"  style="grid-column:4;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\thorium.html.html"> Th</a></div> 
+    <div class="Pa"  style="grid-column:5;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\protactinium.html.html"> Pa</a></div> 
+  <div class="U" style="grid-column:6;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\uranium.html.html"> U</a></div> 
+    <div class="Np" style="grid-column:7;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\neptunium.html.html"> Np</a></div>
+ <div class= "Pu" style="grid-column:8;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\plutonium.html.html"> Pu</a></div>
+     <div class= "Am" style="grid-column:9;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\americium.html.html"> Am</a></div>
+ <div class="Cm"  style="grid-column:10;">       <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\curium.html.html"> Cm</a></div>
+           <div class="Bk"  style="grid-column:11;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\berkelium.html.html">  Bk</a></div>
+                 <div class="Cf"  style="grid-column:12;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\californium.html.html">  Cf</a></div>
+                       <div class="Es" style="grid-column:13;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\einsteinium.html.html">  Es</a></div>
+                    <div class="Fm"  style="grid-column:14;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\fermium.html.html">  Fm</a></div>
+                             <div class="Md" style="grid-column:15;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\mendelevium.html.html">  Md</a></div>
+                              <div class="No"  style="grid-column:16;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\nobelium.html.html">  No</a></div>
+                                     <div class="Lr" style="grid-column:17;">  <a class="lines" href="C:\Users\ladylynflores\Desktop\FloresWeb\lawrencium.html.html">  Lr</a></div>
+<div class="origin">
+
+    <p>  Russian chemist Dmitri Mendeleev is credited in developing the 
+        first table of elements in 1869. He created a table of the known
+        elements in ascending order by atomic weight, grouped together by 
+        similarities in properties. He also predicted the discovery of other 
+        elements, and left a number of empty spaces to account for elements
+        that were yet to be discovered. At about the same time, a German chemist
+        named Julius Lothar Meyer independently arrived at a periodic table 
+        that has remarkably similar conclusions.
+
+    </p>
+</div>
+   <div class="legend">
+    <h3>Legend</h3>
+    <ul>
+        <li><span class="alkali"></span>Alkali Metals</li>
+        <li><span class="alkaline"></span>Alkaline Earth Metals</li>
+        <li><span class="transition"></span>Transition Metals</li>
+        <li><span class="lanthanide"></span>Lanthanides</li>
+        <li><span class="actinide"></span>Actinides</li>
+        <li><span class="noble"></span>Noble Gases</li>
+        <li><span class="halogen"></span>Halogens</li>
+        <li><span class="post"></span>Post Transition Metals</li>
+        <li><span class="metalloids"></span>Metalloids</li>
+        <li><span class="nonmetals"></span>Non-Metals</li>
+        <li><span class="unknown"></span>Unknown Chemical Properties</li>
+
+    </ul>
+   </div>
+   <div>
+   <img src="C:\Users\ladylynflores\OneDrive\Pictures\image\AdobeStock_53644926-scaled.jpeg" alt="" class="backimg">
+</div>
+</body>
+</html>
